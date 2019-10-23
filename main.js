@@ -9,7 +9,6 @@ const resetButton = document.getElementById('resetButton');
 let convertedTemp = document.getElementById('convertedTempHolder');
 
 const toFahrenheit =  () => {
-  console.error('it works')
   let inputVal = document.getElementById('temperature').value;
   let toFahr = ((inputVal * 9/5) + 32).toFixed(1);
   let domString = `<p>${toFahr}° Fahrenheit</p>`;
@@ -39,16 +38,32 @@ const toCelsius =  () => {
 
 const determineConverter = () => {
   if (fahrenheitRadio.checked === true) {
-    console.log('hey')
     toFahrenheit();
   } else if (celciusRadio.checked === true) {
     toCelsius();
   }
 }
 
+const hitEnter = () => {
+  const tempInput = document.getElementById('temperature');
+  tempInput.addEventListener('keypress', (event) => {
+    if (event.keyCode === 13) {
+      determineConverter();
+    }
+  })
+}
+
+const clearField = () => {
+  const reset = document.getElementById('temperature').value = '';
+  document.getElementById('fahrenheitRadio').checked = false;
+  document.getElementById('celciusRadio').checked = false;
+  printToDom('convertedTempHolder', reset)
+}
+
 const init = () => {
+  hitEnter();
   convertButton.addEventListener('click', determineConverter);
-  resetButton.addEventListener('cleck', clearField);
+  resetButton.addEventListener('click', clearField);
 }
 
 init();

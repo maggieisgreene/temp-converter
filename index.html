@@ -10,14 +10,30 @@
 </head>
 <body>
   <h1 class="text-center">Temperature Converter</h1>
+
   <div class="form-container">
     <input class="form-control col-6 offset-3" id="temperature" type="number" placeholder="Enter Number Here">
-    <div class="radio-button-container"></div>
-      <input type="radio">To Fahrenheit</input>
-      <input type="radio">To Celcius</input>
+  </div>
+
+  <div class="radio-button-container"></div>
+    <div class="text-center">
+      <input type="radio" id="fahrenheitRadio">To Fahrenheit</input>
+    </div>
+    <div class="text-center">
+      <input type="radio" id="celciusRadio">To Celcius</input>
     </div>
   </div>
 
-  <button type="button" class="btn btn-light col-4 offset-4">Convert</button>
+  <div class="convertContainer text-center">
+    <button type="button" class="btn btn-light" id="convertButton">Convert</button>
+  </div>
+
+  <div class="resetContainer text-center">
+    <button type="button" class="btn btn-light" id="resetButton">Reset</button>
+  </div>
+
+  <div id="convertedTempHolder"></div>
+
+  <script src="./main.js"></script>
 </body>
 </html>

@@ -1,3 +1,23 @@
 body {
   background-color: gainsboro;
 }
+
+.convertContainer {
+  padding: 5px;
+}
+
+.resetContainer {
+  padding: 5px;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}
+
+.blue {
+  color: blue;
+}

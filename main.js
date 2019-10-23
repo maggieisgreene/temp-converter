@@ -11,7 +11,7 @@ let convertedTemp = document.getElementById('convertedTempHolder');
 const toFahrenheit =  () => {
   console.error('it works')
   let inputVal = document.getElementById('temperature').value;
-  let toFahr = (inputVal * 9/5) + 32;
+  let toFahr = ((inputVal * 9/5) + 32).toFixed(1);
   let domString = `<p>${toFahr}° Fahrenheit</p>`;
   printToDom('convertedTempHolder', domString);
   if (toFahr < 90 && toFahr > 32) {
@@ -25,9 +25,16 @@ const toFahrenheit =  () => {
 
 const toCelsius =  () => {
   let inputVal = document.getElementById('temperature').value;
-  let toCels = (inputVal - 32) * 5/9;
+  let toCels = ((inputVal - 32) * 5/9).toFixed(1);
   let domString = `<p>${toCels}° Celcius</p>`;
   printToDom('convertedTempHolder', domString);
+  if (toCels < 32 && toCels > 0) {
+    convertedTemp.classList.add('green');
+  } else if (toCels >= 32) {
+    convertedTemp.classList.add('red');
+  } else if (toCels <= 0) {
+    convertedTemp.classList.add('blue');
+  }
 }
 
 const determineConverter = () => {
